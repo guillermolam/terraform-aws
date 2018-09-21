@@ -14,6 +14,13 @@ locals {
 
 sudo route add -net 10.169.0.0 netmask 255.255.0.0 gw 10.175.0.199
 sudo route add -net 0.0.0.0/0 gw 10.175.0.199
+
+sudo echo "10.169.39.105 mdv-docdevl01" >> /etc/hosts
+aws s3 cp s3://mapfre-terraform/certs/mdv-docdevl01.crt .
+sudo cp mdv-docdevl01.crt /etc/pki/ca-trust/source/anchors/
+sudo update-ca-trust
+sudo docker version
+
 CA_CERTIFICATE_DIRECTORY=/etc/kubernetes/pki
 CA_CERTIFICATE_FILE_PATH=$CA_CERTIFICATE_DIRECTORY/ca.crt
 sudo mkdir -p $CA_CERTIFICATE_DIRECTORY
@@ -45,8 +52,8 @@ resource "aws_launch_configuration" "terra" {
   name_prefix                 = "terraform-eks"
   key_name                    = "${var.key_name}"
   security_groups             = ["${var.security_group_id}"]
-	#user_data 									= "${data.template_file.user_data.rendered}"
   user_data_base64 						= "${base64encode(local.demo-node-userdata)}"
+
   lifecycle {
     create_before_destroy = true
   }

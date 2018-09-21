@@ -35,6 +35,11 @@ resource "aws_iam_role_policy_attachment" "node-AmazonEC2ContainerRegistryReadOn
   role       = "${aws_iam_role.node.name}"
 }
 
+resource "aws_iam_role_policy_attachment" "node-AmazonS3FullAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  role       = "${aws_iam_role.node.name}"
+}
+
 resource "aws_iam_instance_profile" "node" {
   name = "terraform-eks-node"
   role = "${aws_iam_role.node.name}"
