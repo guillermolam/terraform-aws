@@ -1,6 +1,3 @@
-# EKS Worker Nodes Resources
-#  * IAM role allowing Kubernetes actions to access other AWS services
-
 resource "aws_iam_role" "consulNode" {
   name = "terraform-consul-node"
 

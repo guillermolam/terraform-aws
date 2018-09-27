@@ -28,8 +28,8 @@
       "tags": {
         "ami": "{{user `us_east_1_name`}}"
       },
-      "ssh_private_ip": false,
-      "associate_public_ip_address": true
+      "ssh_interface": "public_ip",
+      "associate_public_ip_address": false
     }
   ],
   "provisioners": [

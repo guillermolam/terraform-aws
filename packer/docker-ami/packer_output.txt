@@ -1,0 +1,5 @@
+amazon-linux-hvm-docker-ce-base output will be in this color.
+
+1 error(s) occurred:
+
+* unknown configuration key: "ssh_private_ip"
