@@ -1,19 +1,37 @@
 ## MAPFRE AWS TERRAFORM SCRIPTS
 Terraform scripts for each environments that let you create and manage CLOUD environmnets.
+This repo is arranged into two sub folders - b2c-challenge and templates
 
-## Environments
-'DEV', 'Staging' and 'Prod'.
+## Tools
+Terraform, AWS Account, AWS CLI (after install of awscli,aws configure needs to be run to configure keys and region),VSCode to run the commands,
+and s3 bucket mapfre-terraform in us-east-1 region.
 
-## Initialisation
-Run 'terraform init' to initialise the terraform scripts for the specific environment.
-
-## Module Retrievel
-Run 'terraform get' to get the modules into the terraform state for a particular environment.
-
-## View the execution plan
-Run 'terraform plan -out out.terraform -var-file master-variables.tf' to view the plan created by terraform. This will only output the plan and will not apply the changes on the remote servers 'aws'.
-
-## Run the scripts
-Run 'terraform apply out.terraform' after the viewing the execution plan to apply the changes on the remote provider.
+# b2c-challenge
+This folder has infrastrucuture specific to b2c-challenge project.Steps to setup -
+```
+1. git clone <repo_url>
+2. cd b2c-challenge/launch
+3. terraform init
+4. terraform get
+5. terarform plan -out "out.terraform" -var-file=../input_variables.tf
+6. terraform apply "out.terraform"
+Above steps will create the infrastructure for you.
+To delete the infrastructure-
+1. terraform destroy -var-file=../input_variables.tf
+```
+#. templates
+This folder has a more generalised layout for creating a complete infrastrucuture for Dev and Staging. Steps to setup-
+```
+1. git clone <repo_url>
+2. cd templates/dev/Single Region
+3. terraform init
+4. terraform get
+5. terarform plan -out "out.terraform" -var-file=../master_variables.tf
+6. terraform apply "out.terraform"
+Above steps will create the infrastructure for you.
+To delete the infrastructure-
+1. terraform destroy -var-file=../master_variables.tf
+```
+*** Above same steps apply for creating Staging environment. The only change being cd to template/staging/Single Region
 
 
