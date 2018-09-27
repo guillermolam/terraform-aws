@@ -19,7 +19,7 @@ Above steps will create the infrastructure for you.
 To delete the infrastructure-
 1. terraform destroy -var-file=../input_variables.tf
 ```
-#. templates
+#templates
 This folder has a more generalised layout for creating a complete infrastrucuture for Dev and Staging. Steps to setup-
 ```
 1. git clone <repo_url>
