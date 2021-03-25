@@ -1,10 +1,10 @@
-## MAPFRE AWS TERRAFORM SCRIPTS
+## AWS TERRAFORM SCRIPTS
 Terraform scripts for each environments that let you create and manage CLOUD environmnets.
 This repo is arranged into two sub folders - b2c-challenge and templates
 
 ## Tools
 Terraform, AWS Account, AWS CLI (after install of awscli,aws configure needs to be run to configure keys and region),VSCode to run the commands,
-and s3 bucket mapfre-terraform in us-east-1 region.
+and s3 bucket terraform in us-east-1 region.
 
 # b2c-challenge
 This folder has infrastrucuture specific to b2c-challenge project.Steps to setup -
